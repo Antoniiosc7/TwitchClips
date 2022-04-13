@@ -33,6 +33,14 @@ var app = (function () {
     function safe_not_equal(a, b) {
         return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
     }
+    let src_url_equal_anchor;
+    function src_url_equal(element_src, url) {
+        if (!src_url_equal_anchor) {
+            src_url_equal_anchor = document.createElement('a');
+        }
+        src_url_equal_anchor.href = url;
+        return element_src === src_url_equal_anchor.href;
+    }
     function is_empty(obj) {
         return Object.keys(obj).length === 0;
     }
@@ -4390,7 +4398,7 @@ var app = (function () {
     	return block;
     }
 
-    // (130:9) <Button outline color="warning" on:click={function (){        window.location.href = `/#/th3antonio/${entry.country}/${entry.year}`       }}>
+    // (136:9) <Button outline color="warning" on:click={function (){        window.location.href = `/#/th3antonio/${entry.country}/${entry.year}`       }}>
     function create_default_slot_4(ctx) {
     	let t;
 
@@ -4410,14 +4418,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(130:9) <Button outline color=\\\"warning\\\" on:click={function (){        window.location.href = `/#/th3antonio/${entry.country}/${entry.year}`       }}>",
+    		source: "(136:9) <Button outline color=\\\"warning\\\" on:click={function (){        window.location.href = `/#/th3antonio/${entry.country}/${entry.year}`       }}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (135:9) <Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
+    // (141:9) <Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
     function create_default_slot_3(ctx) {
     	let t;
 
@@ -4437,7 +4445,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(135:9) <Button outline color=\\\"danger\\\" on:click={BorrarEntry(entry.country,entry.year)}>",
+    		source: "(141:9) <Button outline color=\\\"danger\\\" on:click={BorrarEntry(entry.country,entry.year)}>",
     		ctx
     	});
 
@@ -4448,29 +4456,17 @@ var app = (function () {
     function create_each_block(ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*entry*/ ctx[13].country + "";
+    	let t0_value = /*entry*/ ctx[13].title + "";
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*entry*/ ctx[13].year + "";
+    	let iframe;
+    	let iframe_src_value;
     	let t2;
-    	let t3;
     	let td2;
-    	let t4_value = /*entry*/ ctx[13].most_grand_slam + "";
-    	let t4;
-    	let t5;
-    	let td3;
-    	let t6_value = /*entry*/ ctx[13].masters_finals + "";
-    	let t6;
-    	let t7;
-    	let td4;
-    	let t8_value = /*entry*/ ctx[13].olympic_gold_medals + "";
-    	let t8;
-    	let t9;
-    	let td5;
     	let button0;
-    	let t10;
-    	let td6;
+    	let t3;
+    	let td3;
     	let button1;
     	let current;
 
@@ -4511,30 +4507,23 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			td1 = element("td");
-    			t2 = text(t2_value);
-    			t3 = space();
+    			iframe = element("iframe");
+    			t2 = space();
     			td2 = element("td");
-    			t4 = text(t4_value);
-    			t5 = space();
-    			td3 = element("td");
-    			t6 = text(t6_value);
-    			t7 = space();
-    			td4 = element("td");
-    			t8 = text(t8_value);
-    			t9 = space();
-    			td5 = element("td");
     			create_component(button0.$$.fragment);
-    			t10 = space();
-    			td6 = element("td");
+    			t3 = space();
+    			td3 = element("td");
     			create_component(button1.$$.fragment);
-    			add_location(td0, file$1, 124, 5, 3016);
-    			add_location(td1, file$1, 125, 5, 3047);
-    			add_location(td2, file$1, 126, 5, 3075);
-    			add_location(td3, file$1, 127, 20, 3129);
-    			add_location(td4, file$1, 128, 20, 3182);
-    			add_location(td5, file$1, 129, 5, 3225);
-    			add_location(td6, file$1, 134, 5, 3407);
-    			add_location(tr, file$1, 123, 4, 3005);
+    			add_location(td0, file$1, 124, 5, 2953);
+    			if (!src_url_equal(iframe.src, iframe_src_value = "https://clips.twitch.tv/embed?clip=" + /*entry*/ ctx[13].id + "&parent=localhost")) attr_dev(iframe, "src", iframe_src_value);
+    			attr_dev(iframe, "height", "360");
+    			attr_dev(iframe, "width", "640");
+    			iframe.allowFullscreen = true;
+    			add_location(iframe, file$1, 127, 6, 3016);
+    			add_location(td1, file$1, 126, 20, 3004);
+    			add_location(td2, file$1, 135, 5, 3201);
+    			add_location(td3, file$1, 140, 5, 3383);
+    			add_location(tr, file$1, 123, 4, 2942);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -4542,31 +4531,23 @@ var app = (function () {
     			append_dev(td0, t0);
     			append_dev(tr, t1);
     			append_dev(tr, td1);
-    			append_dev(td1, t2);
-    			append_dev(tr, t3);
+    			append_dev(td1, iframe);
+    			append_dev(tr, t2);
     			append_dev(tr, td2);
-    			append_dev(td2, t4);
-    			append_dev(tr, t5);
+    			mount_component(button0, td2, null);
+    			append_dev(td2, t3);
     			append_dev(tr, td3);
-    			append_dev(td3, t6);
-    			append_dev(tr, t7);
-    			append_dev(tr, td4);
-    			append_dev(td4, t8);
-    			append_dev(tr, t9);
-    			append_dev(tr, td5);
-    			mount_component(button0, td5, null);
-    			append_dev(td5, t10);
-    			append_dev(tr, td6);
-    			mount_component(button1, td6, null);
+    			mount_component(button1, td3, null);
     			current = true;
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*entries*/ 2) && t0_value !== (t0_value = /*entry*/ ctx[13].country + "")) set_data_dev(t0, t0_value);
-    			if ((!current || dirty & /*entries*/ 2) && t2_value !== (t2_value = /*entry*/ ctx[13].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*entries*/ 2) && t4_value !== (t4_value = /*entry*/ ctx[13].most_grand_slam + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*entries*/ 2) && t6_value !== (t6_value = /*entry*/ ctx[13].masters_finals + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*entries*/ 2) && t8_value !== (t8_value = /*entry*/ ctx[13].olympic_gold_medals + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty & /*entries*/ 2) && t0_value !== (t0_value = /*entry*/ ctx[13].title + "")) set_data_dev(t0, t0_value);
+
+    			if (!current || dirty & /*entries*/ 2 && !src_url_equal(iframe.src, iframe_src_value = "https://clips.twitch.tv/embed?clip=" + /*entry*/ ctx[13].id + "&parent=localhost")) {
+    				attr_dev(iframe, "src", iframe_src_value);
+    			}
+
     			const button0_changes = {};
 
     			if (dirty & /*$$scope*/ 65536) {
@@ -4611,7 +4592,7 @@ var app = (function () {
     	return block;
     }
 
-    // (142:8) <Button outline color="success" on:click={LoadEntries}>
+    // (148:8) <Button outline color="success" on:click={LoadEntries}>
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -4631,14 +4612,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(142:8) <Button outline color=\\\"success\\\" on:click={LoadEntries}>",
+    		source: "(148:8) <Button outline color=\\\"success\\\" on:click={LoadEntries}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (145:8) <Button outline color="danger" on:click={BorrarEntries}>
+    // (151:8) <Button outline color="danger" on:click={BorrarEntries}>
     function create_default_slot_1(ctx) {
     	let t;
 
@@ -4658,7 +4639,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(145:8) <Button outline color=\\\"danger\\\" on:click={BorrarEntries}>",
+    		source: "(151:8) <Button outline color=\\\"danger\\\" on:click={BorrarEntries}>",
     		ctx
     	});
 
@@ -4679,35 +4660,31 @@ var app = (function () {
     	let t7;
     	let th4;
     	let t9;
-    	let th5;
-    	let t10;
-    	let th6;
-    	let t11;
     	let tbody;
     	let tr1;
     	let td0;
     	let input0;
-    	let t12;
+    	let t10;
     	let td1;
     	let input1;
-    	let t13;
+    	let t11;
     	let td2;
     	let input2;
-    	let t14;
+    	let t12;
     	let td3;
     	let input3;
-    	let t15;
+    	let t13;
     	let td4;
     	let input4;
-    	let t16;
+    	let t14;
     	let td5;
     	let button0;
-    	let t17;
-    	let t18;
+    	let t15;
+    	let t16;
     	let tr2;
     	let td6;
     	let button1;
-    	let t19;
+    	let t17;
     	let td7;
     	let button2;
     	let current;
@@ -4766,82 +4743,76 @@ var app = (function () {
     			thead = element("thead");
     			tr0 = element("tr");
     			th0 = element("th");
-    			th0.textContent = "País";
+    			th0.textContent = "Titulo";
     			t1 = space();
     			th1 = element("th");
-    			th1.textContent = "Año";
+    			th1.textContent = "Clip";
     			t3 = space();
     			th2 = element("th");
-    			th2.textContent = "Grand Slams Ganados";
+    			th2.textContent = "Descargar";
     			t5 = space();
     			th3 = element("th");
-    			th3.textContent = "Masters 1000 Ganados";
+    			th3.textContent = "#";
     			t7 = space();
     			th4 = element("th");
-    			th4.textContent = "Medallas Olimpicas";
+    			th4.textContent = "#";
     			t9 = space();
-    			th5 = element("th");
-    			t10 = space();
-    			th6 = element("th");
-    			t11 = space();
     			tbody = element("tbody");
     			tr1 = element("tr");
     			td0 = element("td");
     			input0 = element("input");
-    			t12 = space();
+    			t10 = space();
     			td1 = element("td");
     			input1 = element("input");
-    			t13 = space();
+    			t11 = space();
     			td2 = element("td");
     			input2 = element("input");
-    			t14 = space();
+    			t12 = space();
     			td3 = element("td");
     			input3 = element("input");
-    			t15 = space();
+    			t13 = space();
     			td4 = element("td");
     			input4 = element("input");
-    			t16 = space();
+    			t14 = space();
     			td5 = element("td");
     			create_component(button0.$$.fragment);
-    			t17 = space();
+    			t15 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t18 = space();
+    			t16 = space();
     			tr2 = element("tr");
     			td6 = element("td");
     			create_component(button1.$$.fragment);
-    			t19 = space();
+    			t17 = space();
     			td7 = element("td");
     			create_component(button2.$$.fragment);
     			add_location(th0, file$1, 101, 4, 2317);
-    			add_location(th1, file$1, 102, 4, 2336);
-    			add_location(th2, file$1, 103, 4, 2354);
-    			add_location(th3, file$1, 104, 4, 2388);
-    			add_location(th4, file$1, 105, 16, 2435);
-    			add_location(th5, file$1, 106, 4, 2468);
-    			add_location(th6, file$1, 107, 4, 2483);
+    			add_location(th1, file$1, 102, 4, 2338);
+    			add_location(th2, file$1, 103, 4, 2357);
+    			add_location(th3, file$1, 104, 4, 2381);
+    			add_location(th4, file$1, 105, 16, 2409);
     			add_location(tr0, file$1, 99, 3, 2301);
     			attr_dev(thead, "id", "titulitos");
     			add_location(thead, file$1, 98, 2, 2274);
-    			add_location(input0, file$1, 112, 8, 2545);
-    			add_location(td0, file$1, 112, 4, 2541);
-    			add_location(input1, file$1, 113, 8, 2599);
-    			add_location(td1, file$1, 113, 4, 2595);
-    			add_location(input2, file$1, 114, 8, 2650);
-    			add_location(td2, file$1, 114, 4, 2646);
-    			add_location(input3, file$1, 115, 20, 2724);
-    			add_location(td3, file$1, 115, 16, 2720);
-    			add_location(input4, file$1, 116, 20, 2797);
-    			add_location(td4, file$1, 116, 16, 2793);
-    			add_location(td5, file$1, 117, 4, 2859);
-    			add_location(tr1, file$1, 111, 3, 2531);
-    			add_location(td6, file$1, 141, 4, 3571);
-    			add_location(td7, file$1, 144, 4, 3675);
-    			add_location(tr2, file$1, 140, 3, 3561);
-    			add_location(tbody, file$1, 110, 2, 2519);
+    			add_location(input0, file$1, 112, 8, 2482);
+    			add_location(td0, file$1, 112, 4, 2478);
+    			add_location(input1, file$1, 113, 8, 2536);
+    			add_location(td1, file$1, 113, 4, 2532);
+    			add_location(input2, file$1, 114, 8, 2587);
+    			add_location(td2, file$1, 114, 4, 2583);
+    			add_location(input3, file$1, 115, 20, 2661);
+    			add_location(td3, file$1, 115, 16, 2657);
+    			add_location(input4, file$1, 116, 20, 2734);
+    			add_location(td4, file$1, 116, 16, 2730);
+    			add_location(td5, file$1, 117, 4, 2796);
+    			add_location(tr1, file$1, 111, 3, 2468);
+    			add_location(td6, file$1, 147, 4, 3547);
+    			add_location(td7, file$1, 150, 4, 3651);
+    			add_location(tr2, file$1, 146, 3, 3537);
+    			add_location(tbody, file$1, 110, 2, 2456);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -4855,46 +4826,42 @@ var app = (function () {
     			append_dev(tr0, th3);
     			append_dev(tr0, t7);
     			append_dev(tr0, th4);
-    			append_dev(tr0, t9);
-    			append_dev(tr0, th5);
-    			append_dev(tr0, t10);
-    			append_dev(tr0, th6);
-    			insert_dev(target, t11, anchor);
+    			insert_dev(target, t9, anchor);
     			insert_dev(target, tbody, anchor);
     			append_dev(tbody, tr1);
     			append_dev(tr1, td0);
     			append_dev(td0, input0);
     			set_input_value(input0, /*newEntry*/ ctx[0].country);
-    			append_dev(tr1, t12);
+    			append_dev(tr1, t10);
     			append_dev(tr1, td1);
     			append_dev(td1, input1);
     			set_input_value(input1, /*newEntry*/ ctx[0].year);
-    			append_dev(tr1, t13);
+    			append_dev(tr1, t11);
     			append_dev(tr1, td2);
     			append_dev(td2, input2);
     			set_input_value(input2, /*newEntry*/ ctx[0].most_grand_slam);
-    			append_dev(tr1, t14);
+    			append_dev(tr1, t12);
     			append_dev(tr1, td3);
     			append_dev(td3, input3);
     			set_input_value(input3, /*newEntry*/ ctx[0].masters_finals);
-    			append_dev(tr1, t15);
+    			append_dev(tr1, t13);
     			append_dev(tr1, td4);
     			append_dev(td4, input4);
     			set_input_value(input4, /*newEntry*/ ctx[0].olympic_gold_medals);
-    			append_dev(tr1, t16);
+    			append_dev(tr1, t14);
     			append_dev(tr1, td5);
     			mount_component(button0, td5, null);
-    			append_dev(tbody, t17);
+    			append_dev(tbody, t15);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(tbody, null);
     			}
 
-    			append_dev(tbody, t18);
+    			append_dev(tbody, t16);
     			append_dev(tbody, tr2);
     			append_dev(tr2, td6);
     			mount_component(button1, td6, null);
-    			append_dev(tr2, t19);
+    			append_dev(tr2, t17);
     			append_dev(tr2, td7);
     			mount_component(button2, td7, null);
     			current = true;
@@ -4955,7 +4922,7 @@ var app = (function () {
     						each_blocks[i] = create_each_block(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(tbody, t18);
+    						each_blocks[i].m(tbody, t16);
     					}
     				}
 
@@ -5009,7 +4976,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(thead);
-    			if (detaching) detach_dev(t11);
+    			if (detaching) detach_dev(t9);
     			if (detaching) detach_dev(tbody);
     			destroy_component(button0);
     			destroy_each(each_blocks, detaching);

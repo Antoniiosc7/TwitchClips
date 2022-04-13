@@ -99,13 +99,13 @@ loading
 		<thead id="titulitos">
 			<tr>
 				
-				<th>País</th>
-				<th>Año</th>
-				<th>Grand Slams Ganados</th>
-				<th>Masters 1000 Ganados</th>
-                <th>Medallas Olimpicas</th>
-				<th></th>
-				<th> </th>
+				<th>Titulo</th>
+				<th>Clip</th>
+				<th>Descargar</th>
+				<th>#</th>
+                <th>#</th>
+			
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -122,11 +122,17 @@ loading
 			</tr>
 			{#each entries as entry}
 				<tr>
-					<td>{entry.country}</td>
-					<td>{entry.year}</td>
-					<td>{entry.most_grand_slam}</td>
-                    <td>{entry.masters_finals}</td>
-                    <td>{entry.olympic_gold_medals}</td>
+					<td>{entry.title}</td>
+					
+                    <td>
+						<iframe
+   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=localhost"
+   height="360"
+   width="640"
+   allowfullscreen>
+</iframe>
+						</td>
+                  
 					<td><Button outline color="warning" on:click={function (){
 						window.location.href = `/#/th3antonio/${entry.country}/${entry.year}`
 					}}>

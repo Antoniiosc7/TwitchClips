@@ -100,11 +100,11 @@ loading
 		<thead id="titulitos">
 			<tr>
 				
-				<th>País</th>
-				<th>Año</th>
-				<th>Grand Slams Ganados</th>
-				<th>Masters 1000 Ganados</th>
-                <th>Medallas Olimpicas</th>
+				<th>Titulo</th>
+				<th>Clip</th>
+				<th>Descargar</th>
+				<th>#</th>
+                <th>#</th>
 				<th></th>
 				<th> </th>
 			</tr>
