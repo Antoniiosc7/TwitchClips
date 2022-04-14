@@ -10,9 +10,10 @@ const BASE_API_URL = "/api/v1";
 app.use(bodyParser.json());
 app.use("/",express.static('public'));
 
-const th3antonio = require("./src/back/streamers/th3antonio");
+const th3antonio = require("./src/back/streamers/streamers");
 th3antonio.register(app);
-
+const league = require("./src/back/streamers/leagueoflegends");
+league.register(app);
 
 app.get("/cool", (req,res) => {
     console.log("Requested / route");

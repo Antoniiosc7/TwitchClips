@@ -32,7 +32,7 @@ module.exports.register = (app) => {
         /* Set a date limit (Friday 23h42) */
         const prevFriday = new Date();
 
-        prevFriday.setDate(prevFriday.getDate() - (prevFriday.getDay() + 2) % 7);
+        prevFriday.setDate(prevFriday.getDate() - (prevFriday.getDay() + 2) % 4);
         prevFriday.setHours(23, 42);
 
         /* Retrieve channel's latest clips */
@@ -57,37 +57,36 @@ module.exports.register = (app) => {
             }
         })).data.data, 'broadcaster_id');
         */
-        const th3antonioclips = (await axios({
+        const league = (await axios({
             method: 'get',
-            url: 'https://api.twitch.tv/helix/clips',
+            url: 'https://api.twitch.tv/helix/clips?language=es',
             headers: {
                 'Authorization': access_token,
                 'Client-Id': config.client_id
             },
             params: {
-                broadcaster_id: '39115143',
+                game_id: '21779',
                 started_at: prevFriday,
                 first: '100',
             }
         })).data.data;
-/*
-        const th3 = (await axios({
-            method: 'get',
-            url: 'https://api.twitch.tv/helix/clips',
-            headers: {
-                'Authorization': access_token,
-                'Client-Id': config.client_id
-            },
-            params: {
-                broadcaster_id: '39115143',
-                started_at: prevFriday,
-                first: '100',
-            }
-        })).data.id;
-        */
-        app.get(BASE_API + "/th3antonio", (req, res) => {
-            res.send(JSON.stringify(th3antonioclips));
+
+        app.get(BASE_API + "/leagueoflegends", (req, res) => {
+            res.send(JSON.stringify(league));
         });
+
+        app.get(BASE_API + "/leagueoflegends" + "/:language", (req,res) => {
+            var language = req.params.language;
+            filteredLanguage = league.filter((cont) => {
+                return(cont.language == language);
+            });
+
+            if(filteredLanguage == 0){
+                res.sendStatus(404, "NOT FOUND");
+            }else{
+                res.send(JSON.stringify(filteredLanguage));
+            }
+        })
        
         //console.log(th3antonioclips);
         // console.log(JSON.stringify(th3antonioclips.null.broadcaster_id, null,2));
