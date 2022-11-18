@@ -9,7 +9,7 @@
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/koldo"); 
+        const res = await fetch("/api/v1/nissaxter"); 
         if(res.ok){
             const data = await res.json();
             entries = data;
@@ -24,7 +24,7 @@
 
 	<figure class="text-center">
 		<blockquote class="blockquote">
-		  <h1>Streamer: Koldo</h1>
+		  <h1>Streamer: Nissaxter</h1>
 		</blockquote>
 		
 	  </figure>
@@ -59,8 +59,8 @@ loading
                     <td>
 						<iframe
    src="https://clips.twitch.tv/embed?clip={entry.id}&parent=localhost"
-   height="720"
-   width="1280"
+   height="562"
+   width="1000"
    allowfullscreen>
 </iframe>
 						</td>

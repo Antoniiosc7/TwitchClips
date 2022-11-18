@@ -30,10 +30,10 @@ module.exports.register = (app) => {
 
 
         /* Set a date limit (Friday 23h42) */
-        const prevFriday = new Date();
-
-        prevFriday.setDate(prevFriday.getDate() - (prevFriday.getDay() + 2) % 4);
-        prevFriday.setHours(23, 42);
+        //const prevFriday = new Date();
+        const prevFriday = "2022-11-08T00:00:00Z";
+        //prevFriday.setDate(prevFriday.getDate() - (prevFriday.getDay() + 2) % 4);
+        //prevFriday.setHours(23, 42);
 
         /* Retrieve channel's latest clips */
 

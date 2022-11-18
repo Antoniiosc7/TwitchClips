@@ -9,7 +9,7 @@
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/koldo"); 
+        const res = await fetch("/api/v1/miniduke"); 
         if(res.ok){
             const data = await res.json();
             entries = data;
@@ -24,7 +24,8 @@
 
 	<figure class="text-center">
 		<blockquote class="blockquote">
-		  <h1>Streamer: Koldo</h1>
+		  <h1>Streamer: miniduke</h1>
+		  <title>miniduke</title>
 		</blockquote>
 		
 	  </figure>
@@ -52,7 +53,7 @@ loading
 				<tr>
 					<td>{entry.title}</td>
 					<td>{entry.duration}</td>
-					<td><a href="https://clipsey.com/?clipurl={entry.url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary" target="_blank" type="submit">Link</button>  </td>
+					<td><a href="https://clipsey.com/?clipurl={entry.url}"><button class="btn btn-primary" target="_blank" type="submit">Link</button>  </td>
 					<td>{entry.view_count}</td>
 					<td>{entry.created_at}</td>
 					
