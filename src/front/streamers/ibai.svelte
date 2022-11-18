@@ -9,7 +9,7 @@
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/koldo"); 
+        const res = await fetch("/api/v1/ibai"); 
         if(res.ok){
             const data = await res.json();
             entries = data;
@@ -24,7 +24,8 @@
 
 	<figure class="text-center">
 		<blockquote class="blockquote">
-		  <h1>Streamer: Koldo</h1>
+		  <h1>Streamer: ibai</h1>
+		  <title>ibai</title>
 		</blockquote>
 		
 	  </figure>

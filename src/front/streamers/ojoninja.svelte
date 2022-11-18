@@ -37,8 +37,11 @@ loading
 		
 		<thead id="titulitos">
 			<tr>
-				
 				<th>Titulo</th>
+				<th>Duración</th>
+				<th>Descargar</th>
+				<th>Visualizaciones</th>
+				<th>Fecha</th>
 				<th>Clip</th>			
 		</tr>
 		</thead>
@@ -48,6 +51,10 @@ loading
 			{#each entries as entry}
 				<tr>
 					<td>{entry.title}</td>
+					<td>{entry.duration}</td>
+					<td><a href="https://clipsey.com/?clipurl={entry.url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary" target="_blank" type="submit">Link</button>  </td>
+					<td>{entry.view_count}</td>
+					<td>{entry.created_at}</td>
 					
                     <td>
 						<iframe
